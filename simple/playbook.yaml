@@ -1,0 +1,47 @@
+# A playbook for installing and configuring Nomad
+
+- name: Nomad
+  hosts: all
+  become: true
+  tasks:
+    - name: Install dnf-plugins-core
+      dnf:
+        name: dnf-plugins-core
+        state: present
+    - name: Add Hashicorp repo
+      command:
+        cmd: dnf config-manager --add-repo https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
+        creates: /etc/yum.repos.d/hashicorp.repo
+
+    - name: Install packages
+      dnf:
+        name:
+          - nomad
+          - moby-engine
+        state: present
+
+    - name: Enable Docker
+      systemd:
+        name: docker
+        enabled: true
+        state: started
+
+    - name: Configure Nomad
+      blockinfile:
+        path: /etc/nomad.d/nomad.hcl
+        block: |
+          plugin "docker" {
+            config {
+              allow_privileged = true
+              volumes {
+                enabled = true
+                selinuxlabel = "z"
+              }
+            }
+          }
+
+    - name: Enable Nomad
+      systemd:
+        name: nomad
+        enabled: true
+        state: started
