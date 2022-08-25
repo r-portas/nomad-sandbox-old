@@ -33,6 +33,10 @@ Visit `http://localhost:4646` in your browser
 
 ## Check the Nomad CLI
 
+```bash
+nomad server members
+```
+
 ## Deploy the sample job
 
 ```bash

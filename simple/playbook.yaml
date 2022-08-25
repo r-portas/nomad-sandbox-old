@@ -4,27 +4,8 @@
   hosts: all
   become: true
   tasks:
-    - name: Install dnf-plugins-core
-      dnf:
-        name: dnf-plugins-core
-        state: present
-    - name: Add Hashicorp repo
-      command:
-        cmd: dnf config-manager --add-repo https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
-        creates: /etc/yum.repos.d/hashicorp.repo
-
-    - name: Install packages
-      dnf:
-        name:
-          - nomad
-          - moby-engine
-        state: present
-
-    - name: Enable Docker
-      systemd:
-        name: docker
-        enabled: true
-        state: started
+    - name: Install Nomad and Docker
+      include_tasks: "../ansible/nomad.yaml"
 
     - name: Configure Nomad
       blockinfile:
@@ -40,8 +21,7 @@
             }
           }
 
-    - name: Enable Nomad
+    - name: Restart Nomad
       systemd:
         name: nomad
-        enabled: true
-        state: started
+        state: restarted
