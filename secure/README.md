@@ -1,6 +1,6 @@
 # Secure
 
-This folder contains a Nomad setup with security enabled.
+This folder contains a Nomad setup with security (mTLS) enabled, note that it **doesn't** enable ACLs.
 
 The certificates are generated as part of the Ansible playbook and stored in the `data` folder, which is synced to the host machine.
 
