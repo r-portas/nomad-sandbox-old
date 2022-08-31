@@ -16,7 +16,6 @@
               allow_privileged = true
               volumes {
                 enabled = true
-                selinuxlabel = "z"
               }
             }
           }

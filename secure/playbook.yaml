@@ -30,7 +30,7 @@
 
     - name: Generate Nomad certificate
       shell:
-        cmd: echo '{}' | cfssl gencert -ca=nomad-ca.pem -ca-key=nomad-ca-key.pem -config=cfssl.json -hostname="nomad-dev,localhost,127.0.0.1" - | cfssljson -bare server
+        cmd: echo '{}' | cfssl gencert -ca=nomad-ca.pem -ca-key=nomad-ca-key.pem -config=cfssl.json -hostname="server.global.nomad,localhost,127.0.0.1" - | cfssljson -bare server
         creates: server.pem
         chdir: /data
 
@@ -58,7 +58,6 @@
               allow_privileged = true
               volumes {
                 enabled = true
-                selinuxlabel = "z"
               }
             }
           }
