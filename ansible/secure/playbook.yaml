@@ -47,7 +47,7 @@
         chdir: /data
 
     - name: Install Nomad and Docker
-      include_tasks: "../ansible/nomad.yaml"
+      include_tasks: "../common/nomad.yaml"
 
     - name: Configure Nomad
       blockinfile:

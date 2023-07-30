@@ -2,9 +2,9 @@
 
 A collection of reusable Ansible tasks.
 
-| File         | Description                        |
-| ------------ | ---------------------------------- |
-| `nomad.yaml` | Tasks for install Nomad and Docker |
+| File                | Description                        |
+| ------------------- | ---------------------------------- |
+| `common/nomad.yaml` | Tasks for install Nomad and Docker |
 
 ## Usage
 
