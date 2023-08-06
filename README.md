@@ -29,6 +29,8 @@ To test it out, try running a simple Nomad job, like the Redis job
 nomad job run jobs/redis.nomad.hcl
 ```
 
+To view the status of the job, open the Nomad UI at [http://localhost:4646](http://localhost:4646).
+
 Once finished, the job can be stopped with
 
 ```bash
