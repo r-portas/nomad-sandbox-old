@@ -6,11 +6,14 @@ A collection of reusable Ansible tasks.
 | ------------------- | ---------------------------------- |
 | `common/nomad.yaml` | Tasks for install Nomad and Docker |
 
-## Usage
+## Prerequisites
 
-These tasks can be imported into playbook using the `include_tasks` module
+The following tools are required for running the examples:
 
-```yaml
-- name: Install Nomad and Docker
-  include_tasks: "../ansible/nomad.yaml"
-```
+- [VirtualBox](https://www.virtualbox.org/) - for running the VMs spun up be Vagrant
+- [Vagrant](https://www.vagrantup.com/) - for managing the VMs
+- [Ansible](https://www.ansible.com/) - for provisioning the VMs
+
+### Running the examples
+
+To get started, check out the `simple` folder.

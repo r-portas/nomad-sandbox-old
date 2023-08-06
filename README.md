@@ -6,6 +6,35 @@
   </p>
 </div>
 
+## Getting Started
+
+All the examples can easily be ran in a local Nomad environment.
+
+Before starting, make sure to install:
+
+- [Docker Desktop](https://formulae.brew.sh/cask/docker)
+- [Nomad](https://developer.hashicorp.com/nomad/docs/install)
+
+Next open a terminal and run the following:
+
+```bash
+make start
+```
+
+You'll want to keep this terminal open in the background.
+
+To test it out, try running a simple Nomad job, like the Redis job
+
+```bash
+nomad job run jobs/redis.nomad.hcl
+```
+
+Once finished, the job can be stopped with
+
+```bash
+nomad job stop redis
+```
+
 ## About The Project
 
 [HashiCorp Nomad](https://www.nomadproject.io/) is a simple and lightweight scheduler and orchestrator to manage containerized and non-containerized workloads, in essence it _somewhat_ comparable to [Kubernetes](https://kubernetes.io/), but with a much different approach (Kubernetes is an all-in-one solution, with a lot of things provided out of the box whereas Nomad is quite minimal, with a lot of additional functionality provided by tools like [Consul](https://www.consul.io/) and [Vault](https://www.vaultproject.io/)).
@@ -25,17 +54,3 @@ I've used Kubernetes a bit for work and I think its still a great fit for enterp
 | ------------------------------------------------------------------------------------------- | ---------------------------------------------- |
 | Easy to install, a single binary                                                            | Harder to secure, default install isn't secure |
 | Nomad jobs are much shorter than similar K8s manifests, HCL is a nice language to work with | In comparison K8s has a huge ecosystem         |
-
-## Getting Started
-
-### Prerequisites
-
-The following tools are required for running the examples:
-
-- [VirtualBox](https://www.virtualbox.org/) - for running the VMs spun up be Vagrant
-- [Vagrant](https://www.vagrantup.com/) - for managing the VMs
-- [Ansible](https://www.ansible.com/) - for provisioning the VMs
-
-### Running the examples
-
-To get started, check out the `ansible/simple` folder.
