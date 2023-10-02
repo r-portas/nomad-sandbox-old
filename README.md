@@ -47,12 +47,3 @@ I run my own homelab, which used to run apps as containers on top of Kubernetes.
 The setup worked fairly well, but I wanted a simpler solution to running my apps.
 The type of workloads I run are fairly simple, I had a single server and the networking of the containers is fairly simple.
 For what I doing I didn't need the complexity of Kubernetes, so instead I took a look at Nomad as an alternative.
-
-### My experience with Nomad vs Kubernetes
-
-I've used Kubernetes a bit for work and I think its still a great fit for enterprise systems, however I found it had difficulty scaling _down_ to my needs, namely how it operates on a single node. Below is a list of the pro and cons I've found while exploring Nomad. Note that I'm still a novice with Nomad, so some of these might be incorrect.
-
-| Pros                                                                                        | Cons                                           |
-| ------------------------------------------------------------------------------------------- | ---------------------------------------------- |
-| Easy to install, a single binary                                                            | Harder to secure, default install isn't secure |
-| Nomad jobs are much shorter than similar K8s manifests, HCL is a nice language to work with | In comparison K8s has a huge ecosystem         |
