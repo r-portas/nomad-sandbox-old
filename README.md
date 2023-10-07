@@ -1,5 +1,5 @@
 <div align="center">
-  <h1 align="center">Nomad Examples</h3>
+  <h1 align="center">Nomad Sandbox</h3>
 
   <p align="center">
     A collection of examples for working with HashiCorp Nomad
